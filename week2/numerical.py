@@ -63,34 +63,34 @@ def bin_to_dec2(bin):
 
 
 def dec_to_bin(dec):
-    N = dec
-    R = ''
-    while N > 0:
-        R = R + str(N % 2)
-        N = N//2
-    # end while
-    return R[::-1]
+    dec = '5.75'
+    temp = dec.split('.')
+    integer = int(temp[0])
+    result = ''
+    # Convert integer to binay
+    while integer > 0:
+        Remainder = integer%2
+        integer = integer//2
+        result += str(Remainder)
+    # End loop
+    # revese the binary
+    result = result[::-1]+"."
+    # Convert floating-point to binary
 
-
-def fdec_to_bin2(dec):
-    N = dec
-    R = '0.'
-    while True:
-        N = N * 2
-        if N >= 1:
-            R = R + '1'
-        else:
-            R = R + '0'
-        # end if
-        # mod to get 0.xx
-        N = N % 1
-        # round to 2 decimals place
-        N = round(N, 2)
-        # if repeat number stop
-        if N == dec:
+    # check length of floating part
+    length = len(temp[1])
+    # Convert string to float.
+    floating = int(temp[1])/10**length
+    old_value = floating
+    # Convert floating-point to binary
+    for i in range(0,24):
+        floating = floating * 2
+        result +=str(int(floating//1))
+        floating = round(floating%1,2)
+        if floating == old_value:
             break
-    # end while
-    return R
+    # end loop
+    return
 
 
 # task12
