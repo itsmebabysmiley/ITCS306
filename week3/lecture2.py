@@ -217,7 +217,7 @@ def is_zero(a):
 
 def transpose(a):
     rows, colums = len(a),len(a[0])
-    temp = [[i for i in range(0,rows)] for j in range(0,colums)]
+    temp = numpy.empty((rows,colums),dtype=int)
     for i in range(rows):
         for j in range(colums):
             temp[i][j] = a[j][i]
