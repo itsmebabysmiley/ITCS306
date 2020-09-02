@@ -216,15 +216,14 @@ def is_zero(a):
 
 
 def transpose(a):
-    # rows, colums = a.shape
-    temp = [[j for j in range(0, len(a[0]))] for i in range(0, len(a))]
-    print(type(a))
-    # for i in range(0, len(a)):
-    #     for j in range(0, len(a[0])):
-    #         temp[i, j] = a[j, i]
-    #     # end for
-    # # end for
-    # return temp
+    rows, colums = len(a),len(a[0])
+    temp = [[i for i in range(0,rows)] for j in range(0,colums)]
+    for i in range(rows):
+        for j in range(colums):
+            temp[i][j] = a[j][i]
+        # end for
+    # end for
+    return temp
 
 
 # Driver code
@@ -246,12 +245,14 @@ if __name__ == '__main__':
         [0, 0, 1],
         ])
     c = numpy.zeros((2, 2),int)
-    d = [[j for j in range(0, 3)] for i in range(0, 3)]
+    d = [[1,2,3],
+         [4,5,6],
+         [7,8,9]]
     # print(is_square(a))
     # print(is_symmetrical(a))
     # print(is_diagonal(a))
     # print(is_identity(a))
     # print(is_zero(c))
-    print(transpose(d))
+    print(numpy.array(transpose(d)))
     
 
