@@ -226,6 +226,41 @@ def transpose(a):
     return temp
 
 
+def transpose2(a):
+    rows, colums = a.shape
+    temp = numpy.empty((rows,colums),dtype=int)
+    for i in range(rows):
+        for j in range(colums):
+            temp[i,j] = a[j,i]
+        # end for
+    # end for
+    return temp
+
+
+def dot_product(a,b):
+    rows = len(a)
+    colums = len(a[0])
+    c = numpy.empty((rows,colums),dtype=int)
+    if rows == colums:
+        i = 0
+        while i < rows:
+            j = 0
+            while j < colums:
+                product_sum = 0
+                k = 0
+                while k < len(a[0]):
+                    product_sum += a[i,k] * b[k,j]
+                    k += 1
+                # end  k loop
+                c[i,j] = product_sum
+                j += 1
+            # end j loop
+            i += 1
+        # end i loop
+        return c
+    else:
+        return 'Error'
+
 # Driver code
 if __name__ == '__main__':
 
@@ -253,6 +288,9 @@ if __name__ == '__main__':
     # print(is_diagonal(a))
     # print(is_identity(a))
     # print(is_zero(c))
-    print(numpy.array(transpose(d)))
+    # print(numpy.array(transpose(d)))
+    # print(transpose2(e))
+    print(dot_product(a, e))
+    # print(numpy.dot(a,e))
     
 
