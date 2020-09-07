@@ -20,11 +20,11 @@ def task10():
     turevalue = 2.449489742783178
     for i in range(0, MAX_iterations):
         x = (1/2)*(prev_x + N/prev_x)
-        prev_x = x
         # find Et
         print('Et(%d) =' % i, (abs((turevalue-x)/turevalue)*100), end=' ')
         # find Ea
-        print('Ea(%d) =' % i, (abs(x-prev_x)/x)*100)
+        print('Ea(%d) =' % i, (abs((x-prev_x)/x))*100)
+        prev_x = x
     # end for
     print('The Approximated value of sqrt(6) =', x)
 
