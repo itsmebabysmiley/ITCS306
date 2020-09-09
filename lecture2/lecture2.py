@@ -217,17 +217,6 @@ def is_zero(a):
 
 
 def transpose(a):
-    rows, colums = len(a),len(a[0])
-    temp = numpy.empty((rows,colums),dtype=int)
-    for i in range(rows):
-        for j in range(colums):
-            temp[i][j] = a[j][i]
-        # end for
-    # end for
-    return temp
-
-
-def transpose2(a):
     rows, colums = a.shape
     temp = numpy.empty((rows,colums),dtype=int)
     for i in range(rows):
@@ -237,7 +226,7 @@ def transpose2(a):
     # end for
     return temp
 
-
+# task6
 def dot_product(a,b):
     rows = len(a)
     colums = len(a[0])
@@ -262,6 +251,23 @@ def dot_product(a,b):
     else:
         return 'Error'
 
+
+# task7
+def deter(a):
+    det = 0
+    if len(a) == 1 and is_square(a):
+        return a[0][0]
+    else:
+        for i in range(3):
+            det = det + (a[0][i]*(a[1][(i+1)%3]*a[2][(i+2)%3] - a[1][(i+2)%3]*a[2][(i+1)%3]));
+    return det
+
+
+# task8
+
+
+# task8
+# task 9 do by hand
 # Driver code
 if __name__ == '__main__':
 
@@ -284,14 +290,20 @@ if __name__ == '__main__':
     d = [[1,2,3],
          [4,5,6],
          [7,8,9]]
+    e = numpy.array([
+        [3,4,2],
+        [13,26,75],
+        [9,5,3]
+        ])
     # print(is_square(a))
     # print(is_symmetrical(a))
     # print(is_diagonal(a))
     # print(is_identity(a))
     # print(is_zero(c))
     # print(numpy.array(transpose(d)))
-    # print(transpose2(e))
-    print(dot_product(a, e))
+    # print(transpose(e))
+    # print(dot_product(a, e))
     # print(numpy.dot(a,e))
-    
-
+    # find det
+    print(numpy.linalg.det(a))
+    print(deter(a))
