@@ -119,7 +119,8 @@ def cube_root():
     print('Cube root of {} : {}' .format(N, x))
 # code AJ
 
-
+#here is website that can make you understand
+#https://binary-system.base-conversion.ro/convert-real-numbers-from-decimal-system-to-32bit-single-precision-IEEE754-binary-floating-point.php
 def dec_iee():
     # won't work every number just 0.096
     N = 0.096
