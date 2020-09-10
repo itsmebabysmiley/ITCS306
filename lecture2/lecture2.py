@@ -217,11 +217,11 @@ def is_zero(a):
 
 
 def transpose(a):
-    rows, colums = a.shape
+    rows, colums = len(a),len(a)
     temp = numpy.empty((rows,colums),dtype=int)
     for i in range(rows):
         for j in range(colums):
-            temp[i,j] = a[j,i]
+            temp[i][j] = a[j][i]
         # end for
     # end for
     return temp
@@ -252,21 +252,104 @@ def dot_product(a,b):
         return 'Error'
 
 
-# task7
-def deter(a):
-    det = 0
-    if len(a) == 1 and is_square(a):
-        return a[0][0]
+# task7 find determinate
+# minor(a,r,c) just use to find minor for determinate 
+# return in array
+def minor(a, r, c):
+    l = len(a)
+    temp = []
+    # run loop through colum 
+    for j in range(l):
+            temp2 = []
+            # run loop through row
+            for i in range(l):
+                # cut the row and colum to get minor
+                if  j != c and i != r :
+                    temp2.append(a[i][j])
+                # end if
+            # end for j
+            # if temp2 is not empty
+            if temp2:
+                temp.append(temp2)
+        #end if
+    #end for i
+    return temp      
+
+# find determinate of 3x3 matrix.
+def det3x3(a):
+    d = 0 # result
+    if len(a) == 1 :return a[0][0]
     else:
-        for i in range(3):
-            det = det + (a[0][i]*(a[1][(i+1)%3]*a[2][(i+2)%3] - a[1][(i+2)%3]*a[2][(i+1)%3]));
-    return det
+        for c in range(0,len(a)):
+            # det use only 1st row of minor
+            temp = minor(a, 0, c)
+            b = temp[0][0]*temp[1][1] - temp[0][1]*temp[1][0]
+            d = d + (-1)**c * a[0][c] * b
+        # end loop
+        return d
 
 
-# task8
+# task8 find minor cofactor adjoint and inverse
+# find determinate for NxN useing recursion
+def det(a):
+    d = 0
+    if len(a) == 1 :return a[0][0]
+    else:
+        for c in range(0,len(a)):
+            temp = minor(a, 0, c)
+            d = d + (-1)**c * a[0][c] * det(temp)
+        # end loop
+        return d
 
 
-# task8
+# find complete minor.
+def find_minor(a):
+    # normaly we have to check square matrix first.
+    m = []
+    for i in range(len(a)):
+        for j in range(len(a)):
+            # find det of small minor
+            x = det(minor(a,i,j))
+            m.append(x)
+        # end j loop
+    # end i loop
+    # return in 2d matrix.
+    return numpy.array(m).reshape(len(a),len(a))
+
+# find cofactor from complete minor
+def cofactor(a):
+    a = find_minor(a)
+    for i in range(len(a)):
+       for j in range(len(a)):
+           a[i][j] = (-1)**(i+j) * a[i][j]
+       # end j loop
+    # end i loop
+    return a
+
+# find adjoint from transposed matrix of the cofactor of matrix
+def adjoint(a):
+    return transpose(cofactor(a))
+
+# find inverse from adjoint/determinate
+def inverse(a):
+    # normaly check square matrix
+    # determinate must not equal 0
+    deter = det(a)
+    if deter == 0:
+        return False
+    else:
+        inv = []
+        adj = adjoint(a)
+        for i in range(len(a)):
+            temp = []
+            for j in range(len(a)):
+                temp.append(adj[i][j] / deter)
+            # end j loop
+            inv.append(temp)
+        # end i loop
+    return numpy.array(inv)
+
+
 # task 9 do by hand
 # Driver code
 if __name__ == '__main__':
@@ -295,15 +378,39 @@ if __name__ == '__main__':
         [13,26,75],
         [9,5,3]
         ])
+    g = [
+    	  [1, 1, -1, -2],
+    	  [0, 2, 1, 3],
+    	  [0, 1, 1, 3],
+    	  [0, 2, 1, 4]
+    	 ]
+    
     # print(is_square(a))
     # print(is_symmetrical(a))
     # print(is_diagonal(a))
     # print(is_identity(a))
     # print(is_zero(c))
-    # print(numpy.array(transpose(d)))
     # print(transpose(e))
     # print(dot_product(a, e))
-    # print(numpy.dot(a,e))
-    # find det
-    print(numpy.linalg.det(a))
-    print(deter(a))
+    
+    # find det 3x3
+    # print(det3x3(a))
+    # print(numpy.linalg.det(a))
+    
+    # find minor
+    # print(find_minor(g))
+    
+    # find cofactor
+    # print(cofactor(g))
+    
+    # find adjoint
+    # print(adjoint(g))
+    
+    # find inverse
+    # print(inverse(g))
+    # print(numpy.linalg.inv(g))
+    
+
+    
+    
+    
