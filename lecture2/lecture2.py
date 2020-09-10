@@ -253,7 +253,7 @@ def dot_product(a,b):
 
 
 # task7 find determinate
-# minor(a,r,c) just use to find minor for determinate 
+# minor(a,r,c) just use to find minor of n-1 x n-1
 # return in array
 def minor(a, r, c):
     l = len(a)
