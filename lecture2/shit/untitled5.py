@@ -28,4 +28,17 @@ a = [
         [4, 2, 3],
         ]
 
-print(det(a))
+g = [
+    	  [1, 1, -1, -2],
+    	  [0, 2, 1, 3],
+    	  [0, 1, 1, 3],
+    	  [0, 2, 1, 4]
+    	 ]
+r = [
+     [5	,7	,1],
+    [-4	,1	,0],
+    [2	,0	,3]
+     ]
+for i in range(len(g)):
+    
+    print(numpy.array(getMatrixMinor(g,0,i)))

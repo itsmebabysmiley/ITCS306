@@ -48,5 +48,6 @@ a = [
         [-2, 6, 2],
         [4, 2, 3],
         ]
-print(det(a,3))
+for i in range(3):
+    print(minor(a,0,i))
 
