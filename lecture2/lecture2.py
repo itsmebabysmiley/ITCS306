@@ -280,7 +280,7 @@ def det3x3(a):
     d = 0 # result
     if len(a) == 1 :return a[0][0]
     else:
-        for c in range(0,len(a)):
+        for c in range(0,len(a[0])):
             # det use only 1st row of minor
             temp = minor(a, 0, c)
             b = temp[0][0]*temp[1][1] - temp[0][1]*temp[1][0]
