@@ -262,7 +262,7 @@ def minor(a, r, c):
     for j in range(l):
             temp2 = []
             # run loop through row
-            for i in range(l):
+            for i in range(len(a[0])):
                 # cut the row and colum to get minor
                 if  j != c and i != r :
                     temp2.append(a[i][j])
@@ -384,7 +384,10 @@ if __name__ == '__main__':
     	  [0, 1, 1, 3],
     	  [0, 2, 1, 4]
     	 ]
-    
+    v = [   [1 ,2 ,3 ,0],
+            [4 ,0 ,5 ,6],
+            [7 ,8 ,0 ,9],
+            [1 ,2 ,4 ,8]]
     # print(is_square(a))
     # print(is_symmetrical(a))
     # print(is_diagonal(a))
@@ -392,7 +395,7 @@ if __name__ == '__main__':
     # print(is_zero(c))
     # print(transpose(e))
     # print(dot_product(a, e))
-    
+    print(find_minor(v))
     # find det 3x3
     # print(det3x3(a))
     # print(numpy.linalg.det(a))
