@@ -35,7 +35,7 @@ def newton(f,df,x0,p):
         print(x)
 
 
-def fixedpoint(g,df,x0,p):
+def fixedpoint(g,x0,p):
     es = 0.5 *(10**(2-p))
     x = prev_x = x0
     i = 0
