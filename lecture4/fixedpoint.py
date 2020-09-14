@@ -1,3 +1,4 @@
+#just python3 fixedpoint.py
 from scipy import optimize as o
 import math as m
 def g(x):
