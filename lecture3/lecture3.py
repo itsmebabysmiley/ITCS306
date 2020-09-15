@@ -37,7 +37,7 @@ import numpy
 
 
 def f(x):
-    return x**3 - 6*x**2 + 4*x + 12
+    return numpy.sin(numpy.sqrt(x)) - x
 # task3.1 
 # find root xr 4 significant 
 def interval_search(l, u, n):
