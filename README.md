@@ -1,3 +1,3 @@
 # ITCS306
-Numerical Methods
-![alt text](https://www.google.com/search?q=programming+memes&sxsrf=ALeKk02EGHzhWGkQ7mHU_1PTIXVaIvwYlg:1600189433389&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjAlYCW0uvrAhWFheYKHcljDUIQ_AUoAXoECA0QAw&biw=1360&bih=619#imgrc=OvBdcuoflbsZJM "Logo Title Text 1")
+Numerical Methods\
+![alt text](https://2.bp.blogspot.com/-IpWBrLhAB6w/XMaWK4Z5KDI/AAAAAAAAAJA/10joEkrrAYYUdQhVOeqTrIyElNkhccA7ACLcBGAs/s1600/IMG_20190427_201318_572.jpg "Logo Title Text 1")
