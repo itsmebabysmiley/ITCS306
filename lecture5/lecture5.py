@@ -42,9 +42,9 @@ def min_interval(f,a,b,p):
         l = (a+b)/2 + ep/2
         u = (a+b)/2 - ep/2
         if f(l) > f(u):
-            b = u
+            b = l
         else:
-            a = l
+            a = u
         xmax = (a+b)/2
         ea = abs((xmax - px)/xmax) * 100
         px = xmax
@@ -148,8 +148,8 @@ def max_parabolic(f,x1,x2,x3,p):
 # max_goldensearch2(f,0,2,4)
 # max_parabolic(f,0,1,2,4)
 
-# min_interval(f,0,4,4)
-# min_goldensearch(f,0,4,4)
-# min_parabolic(f, 0, 1, 4, 4)
+min_interval(f,0,4,4)
+min_goldensearch(f,0,4,4)
+min_parabolic(f, 0, 1, 4, 4)
 
         
