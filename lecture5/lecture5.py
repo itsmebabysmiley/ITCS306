@@ -11,7 +11,8 @@ def f(x):
     # task1 x*(1-x)*numpy.e**x
     # x**5 - 3*x**4 + 5
     # x**2 / 10 - (2*numpy.sin(x))
-    return x*(1-x)*numpy.e**x
+    # x*(1-x)*numpy.e**x
+    return x**5 - 3*x**4 + 5
 
 # Task1 find maximum
 def max_interval(f,a,b,p):
@@ -67,7 +68,7 @@ def min_goldensearch(f,xL,xU,p):
             xmin = x1
             xL = x2
         ea = (2-phi)*abs((xU-xL)/xmin)*100
-    print('({},{}) xmin = {} ea = {}'.format(xL,xU,xmin,ea))
+        print('({},{}) xmin = {} ea = {}'.format(xL,xU,xmin,ea))
 
 
 #Task4 find maximum
@@ -104,13 +105,13 @@ def min_parabolic(f,x1,x2,x3,p):
         
         gamma = (alpha1 - alpha2)/(beta1 - beta2);
         x4 = x2 - (0.5 * gamma);
-        if x3 > x2:
+        if x4  > x2:
             x1 = x2
-            x2 = x4
+            x2 = x4 
         else:
             x3 = x2
             x2 = x4
-        xopt = x4
+        xopt = x4 
         ea = abs((xopt - px)/xopt) * 100
         px = xopt
         # print(x1,x2,x3,x4)
@@ -132,24 +133,23 @@ def max_parabolic(f,x1,x2,x3,p):
         
         gamma = (alpha1 - alpha2)/(beta1 - beta2);
         x4 = x2 - (0.5 * gamma);
-        if x4 < x2:
+        if x4 > x2:
             x1 = x2
             x2 = x4
         else:
             x3 = x2
             x2 = x4
         xopt = x4
-        print(xopt)
         ea = abs((xopt - px)/xopt) * 100
         px = xopt
         # print(x1,x2,x3,x4)
         print('({},{}) xmax = {} ea = {}'.format(x1,x2,xopt,ea))
-max_interval(f,2,5,4)
-max_goldensearch(f,2,5,4)
-max_parabolic(f,2,0,5,4)
+# max_interval(f,2,5,4)  
+# max_goldensearch(f,2,5,4)
+# max_parabolic(f,0.0,1.1,2.0,4)
 
-# min_interval(f,0,4,4)
+# min_interval(f,2,5,4)
 # min_goldensearch(f,0,4,4)
-# min_parabolic(f, 0, 1, 4, 4)
+min_parabolic(f, 2.3, 1.1, 2.5, 4)
 
         
