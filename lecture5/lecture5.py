@@ -11,11 +11,11 @@ def f(x):
     # task1 x*(1-x)*numpy.e**x
     # x**5 - 3*x**4 + 5
     # x**2 / 10 - (2*numpy.sin(x))
-    return x**5 - 3*x**4 + 5
+    return x*(1-x)*numpy.e**x
 
 # Task1 find maximum
 def max_interval(f,a,b,p):
-    ep = 0.1
+    ep = (b-a)/10
     ea = 100
     es = 0.5 * 10**(2-p)
     px = b
@@ -144,12 +144,12 @@ def max_parabolic(f,x1,x2,x3,p):
         px = xopt
         # print(x1,x2,x3,x4)
         print('({},{}) xmax = {} ea = {}'.format(x1,x2,xopt,ea))
-# max_interval(f,0,2,4)
-# max_goldensearch2(f,0,2,4)
-# max_parabolic(f,0,1,2,4)
+max_interval(f,2,5,4)
+max_goldensearch(f,2,5,4)
+max_parabolic(f,2,0,5,4)
 
-min_interval(f,0,4,4)
-min_goldensearch(f,0,4,4)
-min_parabolic(f, 0, 1, 4, 4)
+# min_interval(f,0,4,4)
+# min_goldensearch(f,0,4,4)
+# min_parabolic(f, 0, 1, 4, 4)
 
         
