@@ -37,7 +37,9 @@ import numpy
 
 
 def f(x):
-    return x**3 - 6*x**2 + 4*x +12
+    # x**3 - 6*x**2 + 4*x +12
+    # x*(1-x)*numpy.e**x
+    return numpy.e**(x-3) -x - 2
 # task3.1 
 # find root xr 4 significant 
 def interval_search(l, u, n):
@@ -110,9 +112,9 @@ def false_position(l, u):
 
 
 if __name__ == '__main__':
-    print('--------------interval search--------------')
-    interval_search(2,3,11)
-    print('--------------bisection search--------------')
-    bisection(2,3)
+    # print('--------------interval search--------------')
+    # interval_search(2,3,11)
+    # print('--------------bisection search--------------')
+    bisection(4,6)
     print('--------------false position search--------------')
-    false_position(2,3)
+    false_position(4,6)
