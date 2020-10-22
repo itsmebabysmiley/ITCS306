@@ -394,8 +394,8 @@ if __name__ == '__main__':
     # print(is_identity(a))
     # print(is_zero(c))
     # print(transpose(e))
-    # print(dot_product(a, e))
-    print(find_minor(v))
+    print(dot_product(a, e))
+    #print(find_minor(v))
     # find det 3x3
     # print(det3x3(a))
     # print(numpy.linalg.det(a))
